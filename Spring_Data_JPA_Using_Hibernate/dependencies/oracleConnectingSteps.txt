@@ -1,0 +1,25 @@
+
+Steps to connect oracle db via spring boot:
+
+download ojdbc7.jar and keep it in one folder,
+
+
+Open cmd from same folder and do below steps:
+JDBC driver install command:
+>mvn install:install-file -Dfile=ojdbc7.jar  -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar
+
+
+<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0</version>
+</dependency>
+		
+		
+Application.properties:
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.database-platform=org.hibernate.dialect.Oracle10gDialect
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.username=vardhan
+spring.datasource.password=vardhan
+spring.datasource.driver-class=oracle.jdbc.driver.OracleDriver
